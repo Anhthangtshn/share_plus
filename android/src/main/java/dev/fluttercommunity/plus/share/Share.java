@@ -21,6 +21,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import android.text.Html;
 
 /** Handles share intent. */
 class Share {
@@ -61,7 +62,7 @@ class Share {
             .append("<small><p>More content</p></small>")
             .append("<h2 style=\"color: #2e6c80;\">Con chó Long</h2>")
             .toString()));
-    sendIntent.setType("text/html");
+    shareIntent.setType("text/html");
     Intent chooserIntent = Intent.createChooser(shareIntent, null /* dialog title optional */);
     startActivity(chooserIntent);
   }
