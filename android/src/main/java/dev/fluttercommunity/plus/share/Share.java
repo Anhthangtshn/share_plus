@@ -55,7 +55,8 @@ class Share {
     shareIntent.setAction(Intent.ACTION_SEND);
     shareIntent.putExtra(Intent.EXTRA_TEXT, text);
     shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
-    shareIntent.setType("text/plain");
+//    shareIntent.setType("text/plain");
+    sendIntent.setType("text/html");
     Intent chooserIntent = Intent.createChooser(shareIntent, null /* dialog title optional */);
     startActivity(chooserIntent);
   }
