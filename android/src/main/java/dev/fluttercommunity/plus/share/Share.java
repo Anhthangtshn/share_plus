@@ -53,9 +53,14 @@ class Share {
 
     Intent shareIntent = new Intent();
     shareIntent.setAction(Intent.ACTION_SEND);
-    shareIntent.putExtra(Intent.EXTRA_TEXT, text);
+//    shareIntent.putExtra(Intent.EXTRA_TEXT, text);
     shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
 //    shareIntent.setType("text/plain");
+    shareIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(new StringBuilder()
+            .append("<p><b>Some Content</b></p>")
+            .append("<small><p>More content</p></small>")
+            .append("<h2 style=\"color: #2e6c80;\">Con chó Long</h2>")
+            .toString()));
     sendIntent.setType("text/html");
     Intent chooserIntent = Intent.createChooser(shareIntent, null /* dialog title optional */);
     startActivity(chooserIntent);
